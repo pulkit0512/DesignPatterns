@@ -23,3 +23,5 @@ Design patterns define a common language that you and your teammates can use to 
 1) **Encapsulate What Varies**: from a class try to find behaviours which vary frequently with each new requirement. It is always better to separate these behaviours from behaviors which are static or does not change frequently. Having separate classes/methods for frequently changing helps us in maintaining code, making changes to these classes doesn't break the main class.
 2) **Code to an interface/supertype, rather than concrete classes**: It's Always better to code to an interface. The point is to exploit polymorphism by programming to a supertype so that the actual runtime object isn't locked into the code.
 3) **Favor composition over inheritance**: Has-A relationship is better than IS-A relationship. It helps to change the behavior of objects at runtime.
+4) **Strive for loosely coupled designs between objects that interact**: Loosely coupled designs help us to build flexible OO design systems that can handle changes better since we have minimized the interdependency between the objects.
+
