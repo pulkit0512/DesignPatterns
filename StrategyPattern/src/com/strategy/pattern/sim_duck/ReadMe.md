@@ -14,3 +14,5 @@
 13) We will again create a flyable interface but this time, rather than ducks implementing this behaviour we will have concrete implementation class that will implement this behavior.
 14) So instead of inheritance we will use composition of these behaviours according to their concrete implementations and need of subclass.
 15) Duck class will have reference to these behaviors via the flyable interface and will have a setter to set the flying behaviour at runtime.
+
+![img.png](img.png)
