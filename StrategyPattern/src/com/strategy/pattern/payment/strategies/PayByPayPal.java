@@ -5,11 +5,14 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Logger;
 
 /**
  * Concrete strategy. Implements PayPal payment method.
  */
 public class PayByPayPal implements PayStrategy {
+    private static final Logger LOGGER = Logger.getLogger(PayByPayPal.class.getName());
+
     private static final Map<String, String> DATA_BASE = new HashMap<>();
     private static final BufferedReader READER = new BufferedReader(new InputStreamReader(System.in));
     private String email;
@@ -17,8 +20,8 @@ public class PayByPayPal implements PayStrategy {
     private boolean signedIn;
 
     static {
-        DATA_BASE.put("amanda@ya.com", "amanda1985");
-        DATA_BASE.put("john@amazon.eu", "qwerty");
+        DATA_BASE.put("xyz@gmail.com", "strategy");
+        DATA_BASE.put("abc@gmail.com", "qwerty");
     }
 
     /**
@@ -28,14 +31,14 @@ public class PayByPayPal implements PayStrategy {
     public void collectPaymentDetails() {
         try {
             while (!signedIn) {
-                System.out.print("Enter the user's email: ");
+                LOGGER.info("Enter the user's email: ");
                 email = READER.readLine();
-                System.out.print("Enter the password: ");
+                LOGGER.info("Enter the password: ");
                 password = READER.readLine();
                 if (verify()) {
-                    System.out.println("Data verification has been successful.");
+                    LOGGER.info("Data verification has been successful.");
                 } else {
-                    System.out.println("Wrong email or password!");
+                    LOGGER.info("Wrong email or password!");
                 }
             }
         } catch (IOException ex) {
@@ -54,7 +57,8 @@ public class PayByPayPal implements PayStrategy {
     @Override
     public boolean pay(int paymentAmount) {
         if (signedIn) {
-            System.out.println("Paying " + paymentAmount + " using PayPal.");
+            String msg = "Paying " + paymentAmount + " using PayPal.";
+            LOGGER.info(msg);
             return true;
         } else {
             return false;

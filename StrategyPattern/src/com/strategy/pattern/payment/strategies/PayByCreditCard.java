@@ -5,11 +5,13 @@ import com.strategy.pattern.payment.dataobject.CreditCard;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.logging.Logger;
 
 /**
  * Concrete strategy. Implements credit card payment method.
  */
 public class PayByCreditCard implements PayStrategy {
+    private static final Logger LOGGER = Logger.getLogger(PayByCreditCard.class.getName());
     private static final BufferedReader READER = new BufferedReader(new InputStreamReader(System.in));
     private CreditCard card;
 
@@ -19,11 +21,11 @@ public class PayByCreditCard implements PayStrategy {
     @Override
     public void collectPaymentDetails() {
         try {
-            System.out.print("Enter the card number: ");
+            LOGGER.info("Enter the card number: ");
             String number = READER.readLine();
-            System.out.print("Enter the card expiration date 'mm/yy': ");
+            LOGGER.info("Enter the card expiration date 'mm/yy': ");
             String date = READER.readLine();
-            System.out.print("Enter the CVV code: ");
+            LOGGER.info("Enter the CVV code: ");
             String cvv = READER.readLine();
             card = new CreditCard(number, date, cvv);
 
@@ -40,7 +42,9 @@ public class PayByCreditCard implements PayStrategy {
     @Override
     public boolean pay(int paymentAmount) {
         if (cardIsPresent()) {
-            System.out.println("Paying " + paymentAmount + " using Credit Card.");
+            String msg = "Paying " + paymentAmount + " using Credit Card.";
+            LOGGER.info(msg);
+
             card.setAmount(card.getAmount() - paymentAmount);
             return true;
         } else {

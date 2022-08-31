@@ -3,12 +3,15 @@ package com.strategy.pattern.sim_duck;
 import com.strategy.pattern.sim_duck.fly_strategies.FlyStrategy;
 import com.strategy.pattern.sim_duck.quack_strategies.QuackStrategy;
 
+import java.util.logging.Logger;
+
 public abstract class Duck {
+    private static final Logger LOGGER = Logger.getLogger(Duck.class.getName());
     private FlyStrategy flyStrategy;
     private QuackStrategy quackStrategy;
 
     public void swim() {
-        System.out.println("All ducks can swim, so I can also swim.");
+        LOGGER.info("All ducks can swim, so I can also swim.");
     }
 
     public abstract void display();

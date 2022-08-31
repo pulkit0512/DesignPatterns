@@ -1,8 +1,12 @@
 package com.strategy.pattern.sim_duck.fly_strategies;
 
+import java.util.logging.Logger;
+
 public class FlyWithRocket implements FlyStrategy{
+    private static final Logger LOGGER = Logger.getLogger(FlyWithRocket.class.getName());
+
     @Override
     public void fly() {
-        System.out.println("I am flying with a rocket!!");
+        LOGGER.info("I am flying with a rocket!!");
     }
 }
