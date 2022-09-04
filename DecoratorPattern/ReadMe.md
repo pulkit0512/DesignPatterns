@@ -8,6 +8,16 @@ to subclassing for extending functionality.**
 
 ![img.png](Decorator.png)
 
+Decorators have the same supertype as the objects they decorate.
+
+You can use one or more decorators to wrap an object.
+
+Given that the decorator has the same supertype as the object it decorates, we can pass around a decorated object in place of the original (wrapped) object.
+
+The decorator adds its own behavior before and/or after delegating to the object it decorates to do the rest of the job. 
+
+Objects can be decorated at any time, so we can decorate objects dynamically at runtime with as many decorators as we like.
+
 ### Applicability
 Use the Decorator pattern when you need to be able to assign extra behaviors to objects at runtime without breaking the code that uses these objects.
 
