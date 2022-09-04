@@ -2,6 +2,8 @@
 ## It is a type of Behavioral Pattern
 **The Observer Pattern defines a one-to-many relationship between the objects, such that when one of the object changes state then all dependent objects are notified and updated automatically.**
 
+![img.png](ObserverHeadFirst.png)
+
 ![img_1.png](Observer.png)
 
 ### Applicability
