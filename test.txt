@@ -1,0 +1,1 @@
+Hello I am the Decorator Pattern, I am used to Decorating Objects. We can do this at runtime as well. Nice to meet you all!!
